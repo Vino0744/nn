@@ -12,9 +12,9 @@ import numpy as np
 import matplotlib
 
 matplotlib.use('TkAgg')  # 关键代码，临时指定matplotlib后端代码
-import matplotlib.pyplot as plt #导入matplotlib库并命名为plt库
+import matplotlib.pyplot as plt # 导入matplotlib库并命名为plt库
 
-# 2.建立一个一维数组 a 初始化为[4,5,6]，(1)输出a 的类型（type）(2)输出a的各维度的大小（shape）(3)输出 a的第一个元素（值为4）
+# 2.建立一个一维数组 a 初始化为[4,5,6]，(1)输出a 的类型（type）(2)输出a的各维度的大小（shape）(3)输出 a 的第一个元素（值为4）
 print("第二题：\n")
 
 a = np.array([4, 5, 6])
@@ -29,7 +29,7 @@ b = np.array([[4, 5, 6], [1, 2, 3]])
 print("(1)输出各维度的大小（shape）\n", b.shape)
 print("(2)输出 b(0,0)，b(0,1),b(1,1) 这三个元素（对应值分别为4,5,2）\n", b[0, 0], b[0, 1], b[1, 1])
 
-# 4.  (1)建立一个全0矩阵 a, 大小为 3x3; 类型为整型（提示: dtype = int）(2)建立一个全1矩阵b,大小为4x5;  (3)建立一个单位矩阵c ,大小为4x4; (4)生成一个随机数矩阵d,
+# 4.(1)建立一个全0矩阵 a, 大小为 3x3; 类型为整型（提示: dtype = int）(2)建立一个全1矩阵b,大小为4x5;  (3)建立一个单位矩阵c ,大小为4x4; (4)生成一个随机数矩阵d,
 # 大小为 3x2.
 print("第四题：\n")
 
@@ -38,7 +38,7 @@ b = np.ones((4, 5))
 c = np.eye(4)
 d = np.random.random((3, 2))
 
-# 5. 建立一个数组 a,(值为[[1, 2, 3, 4], [5, 6, 7, 8], [9, 10, 11, 12]] ) ,(1)打印a; (2)输出  下标为(2,3),(0,0) 这两个数组元素的值
+# 5. 建立一个数组 a, (值为[[1, 2, 3, 4], [5, 6, 7, 8], [9, 10, 11, 12]] ) ,(1)打印a; (2)输出下标为(2,3),(0,0) 这两个数组元素的值
 print("第五题：\n")
 
 a = np.array([[1, 2, 3, 4], [5, 6, 7, 8], [9, 10, 11, 12]])
@@ -49,10 +49,10 @@ print(a[2, 3], a[0, 0])
 print("第六题：\n")
 
 b = a[0:2, 1:3]
-print("(1)输出b\n", b)
-print("(2) 输出b 的（0,0）这个元素的值\n", b[0, 0])
+print("(1) 输出b\n", b)
+print("(2) 输出b的（0,0）这个元素的值\n", b[0, 0])
 
-# 7. 把第5题中数组a的最后两行所有元素放到 c中，（提示： a[1:2, :]）(1)输出 c ; (2) 输出 c 中第一行的最后一个元素（提示，使用 -1                 表示最后一个元素）
+# 7. 把第5题中数组a的最后两行所有元素放到 c中，（提示： a[1:2, :]）(1)输出 c ; (2) 输出 c 中第一行的最后一个元素（提示，使用 -1 表示最后一个元素）
 print("第七题：\n")
 
 c = a[1:3, :]
@@ -131,14 +131,14 @@ print("第十八题：\n")
 print("x.dot(y)\n", x.dot(y))
 print("np.dot(x,y)\n", np.dot(x, y))
 
-# 19.利用13题目中的 x,进行求和。提示：输出三种求和 (1)print(np.sum(x)):   (2)print(np.sum(x，axis =0 ));   (3)print(np.sum(x,axis = 1))
+# 19.利用13题目中的 x,进行求和。提示：输出三种求和 (1)print(np.sum(x))   (2)print(np.sum(x，axis =0 ))   (3)print(np.sum(x,axis = 1))
 print("第十九题：\n")
 
 print("print(np.sum(x)):", np.sum(x))
 print("print(np.sum(x, axis=0))", np.sum(x, axis=0))
 print("print(np.sum(x, axis=1))", np.sum(x, axis=1))
 
-# 20.利用13题目中的 x,进行求平均数（提示：输出三种平均数(1)print(np.mean(x)) (2)print(np.mean(x,axis = 0))(3) print(np.mean(x,axis =1))）
+# 20.利用13题目中的 x,进行求平均数（提示：输出三种平均数(1)print(np.mean(x))  (2)print(np.mean(x,axis = 0))  (3) print(np.mean(x,axis =1))
 print("第二十题：\n")
 
 print("print(np.mean(x))", np.mean(x))
