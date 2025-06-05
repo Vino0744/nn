@@ -76,13 +76,22 @@ class mySeq2SeqModel(keras.Model):
         
     @tf.function
     def call(self, enc_ids, dec_ids):
-        '''
-        todo
-        
-        完成带attention机制的 sequence2sequence 模型的搭建，模块已经在`__init__`函数中定义好，
-        用双线性attention，或者自己改一下`__init__`函数做加性attention
-        '''
-        return logits
+    # Encoder & Decoder
+    enc_emb = self.embed_layer(enc_ids)  # (batch_size, enc_len, emb_dim)
+    enc_out, enc_state = self.encoder(enc_emb)  # enc_out: (batch_size, enc_len, hidden_dim)
+    dec_emb = self.embed_layer(dec_ids)  # (batch_size, dec_len, emb_dim)
+    dec_out, _ = self.decoder(dec_emb, initial_state=enc_state)  # dec_out: (batch_size, dec_len, hidden_dim)
+    
+    #计算注意力权重
+    attention_scores = tf.matmul(dec_out, enc_out, transpose_b=True)  # (batch_size, dec_len, enc_len)
+    attention_weights = tf.nn.softmax(attention_scores, axis=-1)  # (batch_size, dec_len, enc_len)
+    
+    # 计算上下文向量
+    context_vector = tf.matmul(attention_weights, enc_out)  # (batch_size, dec_len, hidden_dim)
+    combined = tf.concat([dec_out, context_vector], axis=-1)  # (batch_size, dec_len, 2*hidden_dim)
+    logits = self.dense(combined)  # (batch_size, dec_len, vocab_size)
+    
+    return logits
     
     
     @tf.function
