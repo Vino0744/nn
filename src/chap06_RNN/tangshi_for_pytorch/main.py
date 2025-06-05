@@ -136,6 +136,19 @@ def process_poems2(file_name):
 
 def generate_batch(batch_size, poems_vec, word_to_int):
 <<<<<<< HEAD
+    """
+    生成训练所需的批次数据（输入序列和目标序列）。
+
+    Args:
+        batch_size (int): 每个批次的样本数。
+        poems_vec (list): 所有诗歌的索引表示（每首诗是一个词索引列表）。
+        word_to_int (dict): 字到索引的映射字典（未直接使用，但保留以备扩展）。
+
+    Returns:
+        x_batches (list): 输入序列批次，每个元素是一个形状为 (batch_size, seq_len) 的输入序列列表。
+        y_batches (list): 目标序列批次，每个元素是对应输入的下一个词序列（即标签）。
+    """
+
     n_chunk = len(poems_vec) // batch_size# 计算可生成的完整批次数量
     x_batches = []# 存储输入序列批次
     y_batches = []# 存储目标序列批次
